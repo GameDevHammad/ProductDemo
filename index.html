@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-us" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity Web Player | DEMO</title>
+    <link rel="stylesheet" href="./src/style.css">
+  </head>
+  <body class="bg-[#F0F1F1] text-theme">
+    <header class="sticky top-0 bg-theme-2 shadow z-20 flex p-5 justify-between items-center md:px-10 ">
+      <div class="font-josefin text-base">DRESS SIMULATION</div>
+      <nav class="gap-8 text-base font-poppins hidden md:flex">
+        <a href="#home">Home</a>
+        <a href="#demo">Demo</a>
+        <a href="#goal">Goals</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="text-xs px-4 py-2 font-poppins font-medium border-2 border-theme md:text-md md:px-6 md:py-3">Contact</button>
+    </header>
+    <section id="home">
+      <div class="flex py-24 px-10 flex-col gap-4 justify-center items-center md:py-48 md:px-[200px]">
+        <h1 class="text-5xl md:text-[80px] text-center leading-[95%] tracking-tight font-josefin">Welcome to the Future of Fashion Retail</h1>
+        <div class="flex flex-col gap-6 items-center">
+          <p class="text-center text-base md:text-xl font-poppins">Our Digital Interactive Shopping Experience is designed to enhance in-store shopping by allowing customers to visualize outfits on a customizable 3D avatar. Instead of relying on physical fitting rooms, users can digitally try on outfits, adjusting body type, skin tone, and hairstyle to see how different styles, colors, and patterns suit them.</p>
+          <div class="flex gap-3 text-base md:text-xl font-poppins font-medium">
+            <button class="py-4 bg-theme text-theme-2 w-32 md:w-44">Demo</button>
+            <button class="py-4 border-2 w-32 md:w-44">Contact</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <hr class="mx-10 md:mx-[200px]">
+    <section id="demo">
+      <div class="flex py-20 px-10 md:py-[100px] md:px-[200px] flex-col gap-10 md:gap-16 justify-center items-center">
+        <div class="flex flex-col gap-10 items-center">
+          <h2 class="text-4xl md:text-5xl font-josefin text-center leading-[95%] tracking-tight">How to Use the Prototype</h2>
+          <div class="font-poppings text-center text-base md:text-xl flex gap-3 md:gap-5 flex-col md:flex-wrap md:flex-row justify-center w-full">
+            <div class="px-10 py-5 border border-theme">🎯 Adjust Your Avatar</div>
+            <div class="px-10 py-5 border border-theme">👗 Select Outfits</div>
+            <div class="px-10 py-5 border border-theme">🔄 Rotate the Avatar</div>
+          </div>
+        </div>
+        <div class="aspect-[9/16] h-auto w-[80vw] md:h-[85vh] md:w-auto border-[20px] border-[#0D0D0D] inset-0 relative">
+          <canvas id="unity-canvas" class="w-full h-full"></canvas>
+          <div class="absolute -bottom-2 -z-10 h-20 w-full translate-y-1/2">
+            <div class="relative h-20">
+              <div class="bg-theme w-[120%] h-20 absolute top-0 translate-x-1/2 right-1/2 -z-10 -skew-x-12 origin-top-left"></div>
+              <div class="bg-theme w-[120%] h-20 absolute top-0 translate-x-1/2 right-1/2 -z-10 skew-x-12 origin-top-right"></div>
+              <div class="w-[127%] z-10 translate-1/2 right-1/2 h-4 bg-[#0D0D0D] absolute bottom-0"></div>
+            </div>
+          </div>
+        </div>
+        <div class="text-base md:text-xl font-poppins text-center p-5 md:px-10 bg-[#E7E7E7] mt-10"><span class="font-josefin mr-2">Note:</span>This is an early prototype created in a short time for demonstration purposes only. As the prototype was build for desktop applicalication, integrating it in the web greatly reduces the graphics. The final product will have enhanced graphics, better performance, and more outfit options. Future versions will include improved realism, AI-driven customization, and seamless brand integration.</div>
+      </div>
+    </section>
+    <script src="Build/ProductDemo.loader.js"></script>
+    <script>
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        // Mobile device style: fill the whole browser client area with the game canvas:
+        var meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        document.getElementsByTagName('head')[0].appendChild(meta);
+
+        var canvas = document.querySelector("#unity-canvas");
+        canvas.style.width = "100%";
+        canvas.style.height = "100%";
+        canvas.style.position = "fixed";
+
+        document.body.style.textAlign = "left";
+      }
+
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        arguments: [],
+        dataUrl: "Build/ProductDemo.data",
+        frameworkUrl: "Build/ProductDemo.framework.js",
+        codeUrl: "Build/ProductDemo.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "GameDevHammad",
+        productName: "DEMO",
+        productVersion: "1",
+        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+      });
+    </script>
+  </body>
+</html>
