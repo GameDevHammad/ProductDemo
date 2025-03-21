@@ -1,20 +1,24 @@
 @import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
     font-family: 'Josefin Sans';
-    src: url(../font/JosefinSans-Semibold.ttf) format('ttf');
+    src: url(../public/font/JosefinSans-Semibold.ttf) format('ttf');
 }
 
 @font-face {
     font-family: 'Poppins';
-    src: url(../font/Poppins-Regular.ttf) format('ttf');
+    src: url(../public/font/Poppins-Regular.ttf) format('ttf');
     font-weight: 400;
 }
 
 @font-face {
     font-family: 'Josefin Sans';
-    src: url(../font/Poppins-Medium.ttf) format('ttf');
+    src: url(../public/font/Poppins-Medium.ttf) format('ttf');
     font-weight: 500;
 }
 
