@@ -10,9 +10,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@tailwindcss/cli": "^4.0.15",
-    "compression": "^1.8.0",
-    "express": "^4.21.2"
+    "@tailwindcss/cli": "^4.0.15"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
