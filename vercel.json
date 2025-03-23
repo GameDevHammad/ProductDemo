@@ -1,56 +1,38 @@
-{"headers": [
+{
+  "version": 2,
+  "builds": [
     {
-      "source": "/(.*\\.unityweb)",
-      "headers" : [
-        {
-          "key" : "Content-Encoding",
-          "value" : "gzip"
-        }
+      "src": "public/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/Build/*.wasm.unityweb",
+      "headers": [
+        { "key": "Content-Type", "value": "application/wasm" },
+        { "key": "Content-Encoding", "value": "br" }
       ]
     },
     {
-      "source": "/(.*\\.wasm\\.unityweb)",
-      "headers" : [
-        {
-          "key" : "Content-Type",
-          "value" : "application/wasm"
-        }
+      "source": "/Build/*.data.unityweb",
+      "headers": [
+        { "key": "Content-Type", "value": "application/octet-stream" },
+        { "key": "Content-Encoding", "value": "br" }
       ]
     },
     {
-      "source": "/(.*\\.gz)",
-      "headers" : [
-        {
-          "key" : "Content-Encoding",
-          "value" : "gzip"
-        }
+      "source": "/Build/*.framework.js.unityweb",
+      "headers": [
+        { "key": "Content-Type", "value": "application/javascript" },
+        { "key": "Content-Encoding", "value": "br" }
       ]
     },
     {
-      "source": "/(.*\\.wasm\\.gz)",
-      "headers" : [
-        {
-          "key" : "Content-Type",
-          "value" : "application/wasm"
-        }
-      ]
-    },
-    {
-      "source": "/(.*\\.br)",
-      "headers" : [
-        {
-          "key" : "Content-Encoding",
-          "value" : "br"
-        }
-      ]
-    },
-    {
-      "source": "/(.*\\.wasm\\.br)",
-      "headers" : [
-        {
-          "key" : "Content-Type",
-          "value" : "application/wasm"
-        }
+      "source": "/Build/*.loader.js",
+      "headers": [
+        { "key": "Content-Type", "value": "application/javascript" }
       ]
     }
-  ]}
+  ]
+}
